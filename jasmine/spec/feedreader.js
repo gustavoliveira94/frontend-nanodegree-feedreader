@@ -29,7 +29,7 @@ $(function () {
 
         /* Checking if url not is null */
 
-        it('url checked', function () {
+        it('URL Checked', function () {
             for (const allFeed of allFeeds) {
                 expect(allFeed.url).toBeDefined();
                 expect(allFeed.url).not.toBe('');
@@ -39,7 +39,7 @@ $(function () {
 
         /* Checking if name not is null */
 
-        it('name checked', function () {
+        it('Name Checked', function () {
             for (const allFeed of allFeeds) {
                 expect(allFeed.url).toBeDefined();
                 expect(allFeed.url).not.toBe('');
@@ -49,15 +49,15 @@ $(function () {
 
 
     /* Create a new test suit called "The menu" */
-    describe('The menu', function () {
+    describe('The Menu', function () {
 
         /* Test to verify if class menu-hidden is on tag body */
-        it('menu default', function () {
+        it('Menu Default', function () {
             expect($('body').hasClass("menu-hidden")).toBe(true);
         });
 
         /* Test to verify if menu click is working */
-        it('click menu', function () {
+        it('Click Menu', function () {
             $('.menu-icon-link').click();
             expect($('body').hasClass("menu-hidden")).toBe(false);
             $('.menu-icon-link').click();
@@ -73,23 +73,23 @@ $(function () {
         });
 
         /* Checking if have one or more element in loadFeed */
-        it('load feed', function () {
-            expect($('.entry-link .entry').length > 0).toBe(true);
+        it('Load Feed', function () {
+            expect($('.feed .entry').length > 0).toBe(true);
         });
 
     });
 
     /* Create a new test suit called "New Feed Selection" */
-    describe('New Feed Selection', function() {
-        beforeEach(function(done) {
-            loadFeed(0, done);
+    describe('New Feed Selection', function () {
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                loadFeed(1, done);
+            });
         });
 
-    /* Checking if has change element in loadFeed */
-        it('update feed', function(){
-            const feed1 = $(".entry-link .entry");
-            const feed2 = $(".entry-link .entry");
-            expect(feed1 === feed2).toBe(false);
+        /* Checking if has change element in loadFeed */
+        it('Update Feed', function () {
+            expect($('.feed .entry') === $('.feed .entry')).toBe(false);
         });
-});
+    });
 }());
