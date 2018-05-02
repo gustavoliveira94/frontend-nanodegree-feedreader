@@ -81,16 +81,17 @@ $(function () {
 
     /* Create a new test suit called "New Feed Selection" */
     describe('New Feed Selection', function () {
+        var feedContentBefore;
         beforeEach(function (done) {
             loadFeed(0, function () {
+                feedContentBefore = $('.feed');
                 loadFeed(1, done);
             });
         });
 
-
         /* Checking if has change element in loadFeed */
         it('Update Feed', function () {
-            expect($('.feed .entry').html()).not.toBe($('.feed').html());
+            expect($('.feed entry').html()).not.toBe(feedContentBefore.html());
         });
     });
 }());

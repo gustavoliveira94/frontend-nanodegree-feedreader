@@ -1,8 +1,7 @@
 # Project Suit Test
 ---
 
-Project using framework jasmine to suit test.
-<br>
+Project using framework jasmine to suit test.  
 Open archive index.html
 
 ### First Test - RSS Feeds
