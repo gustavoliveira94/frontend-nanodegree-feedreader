@@ -74,7 +74,7 @@ $(function () {
 
         /* Checking if have one or more element in loadFeed */
         it('Load Feed', function () {
-            expect($('.feed .entry').length > 0).toBe(true);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
         });
 
     });
@@ -87,9 +87,10 @@ $(function () {
             });
         });
 
+
         /* Checking if has change element in loadFeed */
         it('Update Feed', function () {
-            expect($('.feed .entry') === $('.feed .entry')).toBe(false);
+            expect($('.feed .entry').html()).not.toBe($('.feed').html());
         });
     });
 }());
